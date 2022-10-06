@@ -83,6 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
             }
             
+            UserDefaults.standard.set(self.podArray, forKey: "myArray")
             self.tableView.reloadData()
 
         })
@@ -112,7 +113,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //  -------------- PREPARE FOR SEGUE --------------
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let secondController = segue.destination as! SecondViewControllerTableViewController
+        _ = segue.destination as! SecondViewControllerTableViewController
     }
     
     
@@ -135,7 +136,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //    -------------- SELECT ROW FUNCTION -------------
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let selectedItem = podArray[indexPath.row]
+        _ = podArray[indexPath.row]
         
         performSegue(withIdentifier: "segue", sender: self)
 
@@ -204,10 +205,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    func setButtonTitle(){
-        let title = UserDefaults.standard.string(forKey: sortB)
-        sortButton.setTitle(title, for: .normal)
-    }
+//    func setButtonTitle(){
+//        let title = UserDefaults.standard.string(forKey: sortB)
+//        sortButton.setTitle(title, for: .normal)
+//    }
 
 
 }
